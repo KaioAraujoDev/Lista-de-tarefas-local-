@@ -15,15 +15,21 @@
     </button>
     <section class="boxModal">
         <p class="textModal">Tarefa adicionada com sucesso</p>
-        <img class="imgModal"  src="assets/checkIcon.png" alt="">
+        <img class="imgModal" src="assets/checkIcon.png" alt="">
     </section>
-    <section>
-        <h1>Criar tarefa</h1>
-        <form action="">
-            <label for="tarefa">Tarefa<input id="tarefa" type="text"></label>
-            <label for="descricao">Descricao<input id="descricao" type="text"></label>
-            <label for="">Prazo de término<input type="date"></label>
-            <input type="submit" value="Criar tarefa">
+    <section class="boxForm">
+        <h1 class="titleForm">Criar tarefa</h1>
+        <form class="divboxForm" action="">
+            <label class="label" for="tarefa">
+                <p>Tarefa</p><input class="input" id="tarefa" type="text">
+            </label>
+            <label class="label" for="descricao">
+                <p>Descrição</p><textarea class="input" name="" id="descricao"></textarea>
+            </label>
+            <label class="label" for="">
+                <p>Prazo de término</p><input class="input" id="data" type="date">
+            </label>
+            <input class="buttonSubmit" type="submit" value="Criar tarefa">
         </form>
     </section>
     <section>
@@ -42,7 +48,7 @@
             <p>Prazo: 9/09/2009</p>
         </div>
     </section>
-    
+
 </body>
 
 </html>
