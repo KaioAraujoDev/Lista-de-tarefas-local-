@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@300&display=swap');
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(#0DE0FD, #0A608E 55%, #08033E);
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    ;
+}
+
+/* Estilo modal tarefa concluída*/
+
+.imgModal {
+    width: 2.5em;
+}
+
+.boxModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #20668C;
+    width: 17em;
+    padding: 0.75em 1em;
+    visibility: hidden;
+}
+
+.textModal {
+    color: white;
+    font-size: 1em;
+    font-weight: 300;
+    width: 60%;
+}
+
+/* Botão task*/
+.buttonTask {
+    position: absolute;
+    right: 0;
+    top: 5em;
+    border: none;
+    background:#6259D4;
+    width:6em;
+    padding: 0.3em 0;
+    border-radius:1em 0 0 1em;
+}
+.iconTask {
+    width:2.7em;
+}

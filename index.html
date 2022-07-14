@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de tarefas</title>
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <button>
-        <img src="/assets/list-task.svg" alt="Botão visualizar tasks">
+    <button class="buttonTask">
+        <img class="iconTask" src="/assets/list-task.svg" alt="Botão visualizar tasks">
     </button>
-    <section>
-        <p>Tarefa adicionada com sucesso</p>
-        <img src="assets/checkIcon.png" alt="">
+    <section class="boxModal">
+        <p class="textModal">Tarefa adicionada com sucesso</p>
+        <img class="imgModal"  src="assets/checkIcon.png" alt="">
     </section>
     <section>
         <h1>Criar tarefa</h1>
         <form action="">
-            <label for="">Tarefa<input type="text"></label>
-            <label for="">Descricao<input type="text"></label>
+            <label for="tarefa">Tarefa<input id="tarefa" type="text"></label>
+            <label for="descricao">Descricao<input id="descricao" type="text"></label>
             <label for="">Prazo de término<input type="date"></label>
             <input type="submit" value="Criar tarefa">
         </form>
