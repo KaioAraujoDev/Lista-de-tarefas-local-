@@ -1,28 +1,17 @@
-const button = document.querySelector('.buttonTask');
+const buttonOpenTask = document.querySelector('.buttonOpenTask');
+const buttonHideTask = document.querySelector('.buttonHideTask');
+
 const modalList = document.querySelector('.boxList');
+const body = document.querySelector('.boxMain');
 
 
-button.addEventListener('click', transicao);
+buttonOpenTask.addEventListener('click',()=>{
+    body.style.marginRight = "30vw";
+    modalList.classList.add('showModal');
+});
 
-const classesModalList  = modalList.classList;
+buttonHideTask.addEventListener('click',()=>{
+    modalList.classList.remove('showModal');
+    body.style.marginRight = "0";
+});
 
-
-function transicao() {
-    classesModalList.contains('showModal') ? hide() : show(); 
-    classesModalList.contains('showModal') || classesModalList.contains('hideModal') ? false : classesModalList.add('showModal')
-
-}
-
-function hide() {
-    classesModalList.remove('showModal');
-    classesModalList.add('hideModal');
-}
-
-function show() {
-    if(classesModalList.contains('hideModal')){
-        classesModalList.remove('hideModal');
-    }else{
-         classesModalList.add('showModal');
-    }
-    
-}
