@@ -10,29 +10,43 @@
 </head>
 
 <body>
-    <button class="buttonTask">
-        <img class="iconTask" src="/assets/list-task.svg" alt="Botão visualizar tasks">
-    </button>
-    <section class="boxModal">
-        <p class="textModal">Tarefa adicionada com sucesso</p>
-        <img class="imgModal" src="assets/checkIcon.png" alt="">
-    </section>
-    <section class="boxForm">
-        <h1 class="titleForm">Criar tarefa</h1>
-        <form class="divboxForm" action="">
-            <label class="label" for="tarefa">
-                <p>Tarefa</p><input placeholder="Tarefa" class="input" id="tarefa" type="text" required>
-            </label>
-            <label class="label" for="descricao">
-                <p>Descrição</p><textarea placeholder="Descrição da tarefa" class="input" name="" id="descricao" required></textarea>
-            </label>
-            <label class="label" for="">
-                <p>Prazo de término</p><input class="input" id="data" type="date" required>
-            </label>
-            <input class="buttonSubmit" type="submit" value="Criar tarefa">
-        </form>
-    </section>
+    <main class="boxMain">
+        <section class="boxModal">
+            <p class="textModal">Tarefa adicionada com sucesso</p>
+            <img class="imgModal" src="assets/checkIcon.png" alt="">
+        </section>
+    
+        <button class="buttonOpenTask">
+            <i class="iconTask"><img class="iconTask" src="/assets/list-task.svg" alt="Botão visualizar tasks"></i>
+        </button>
+        
+        <section class="boxForm">
+            <h1 class="titleForm">Criar tarefa</h1>
+            <form class="divboxForm" action="">
+                <label class="label" for="tarefa">
+                    <p>Tarefa</p><input placeholder="Tarefa" class="input" id="tarefa" type="text" required>
+                </label>
+                <label class="label" for="descricao">
+                    <p>Descrição</p><textarea placeholder="Descrição da tarefa" class="input" name="" id="descricao"
+                        required></textarea>
+                </label>
+                <label class="label" for="">
+                    <p>Prazo de término</p><input class="input" id="data" type="date" required>
+                </label>
+                <input class="buttonSubmit" type="submit" value="Criar tarefa">
+            </form>
+        </section>
+
+        
+    </main>
+
+
     <section class="boxList">
+
+        <button class="buttonHideTask">
+            <i class="iconTask"><img class="iconTask" src="/assets/box-arrow-in-right.svg"
+                    alt="Botão visualizar tasks"></i>
+        </button>
         <div>
             <h2>
                 Título tarefa
@@ -41,13 +55,18 @@
                 <p>Em progresso</p>
             </div>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptate iure, ad reiciendis,
-                odio impedit sunt, corporis maxime repudiandae odit eaque eligendi consequuntur quaerat facilis quasi
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptate iure, ad
+                reiciendis,
+                odio impedit sunt, corporis maxime repudiandae odit eaque eligendi consequuntur quaerat facilis
+                quasi
                 accusamus ratione sed blanditiis.
             </p>
             <p>Prazo: 9/09/2009</p>
         </div>
     </section>
+
+
+
     <script src="js/main.js"></script>
     <script src="js/modals.js"></script>
 </body>

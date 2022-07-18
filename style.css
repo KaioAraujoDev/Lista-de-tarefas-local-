@@ -5,16 +5,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     background-image: linear-gradient(#0DE0FD, #0A608E 55%, #08033E);
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
-    ;
+    
 }
 
-/* Estilo modal tarefa concluída*/
+/******************************** Estilo modalTarefaConcluída ****************************/
 
 .imgModal {
     width: 2.5em;
@@ -40,34 +39,14 @@ body {
     width: 60%;
 }
 
-/* Botão task*/
-.buttonTask {
-    position: absolute;
-    right: 0;
-    top: 5em;
-    border: none;
-    background: #6259D4;
-    width: 6em;
-    padding: 0.3em 0;
-    border-radius: 1em 0 0 1em;
-}
-.buttonTask:hover{
-    cursor:pointer;
-}
+/******************************** Estilo Formulário ****************************/
 
-.iconTask {
-    width: 2.7em;
+.boxMain {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: margin-right .4s;
 }
-
-/*Estilo Formulário*/
-.boxForm {
-    background: rgba(255, 255, 255, 0.95);
-    width: 20%;
-    padding: 2em 2em 1.5em;
-    border-radius: 0.5em;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 .titleForm {
     font-size: 1.6em;
     margin-bottom: 1em;
@@ -126,3 +105,93 @@ body {
     box-shadow: 0 0 3px 2px #4F42E8;
 }
 
+.boxForm,.boxList {
+    background: rgba(255, 255, 255, 1);
+    width: 30vw;
+    padding: 2em 2em 1.5em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+/******************************** Estilo Lista de tarefas ****************************/
+
+.buttonOpenTask {
+    position:absolute;
+    right:1em;
+    top:0;
+    border-radius: 0 0 1em 1em ;
+    background: #6259D4;
+    width: 4.5em;
+    height: 4.5em;
+}
+.buttonOpenTask:hover{
+    cursor: pointer;
+}
+
+.buttonHideTask , .buttonOpenTask{
+    border: none;
+    font-size: 1em;
+}
+
+.buttonHideTask {
+    background:none;
+    position: absolute;
+    top:0.5em;
+    right:1em;
+    width: 3em;
+    height: 3em;
+    border-radius: 1em 1em;
+
+}
+.buttonHideTask:hover{
+    cursor:pointer;
+}
+.iconTask {
+    width: 2em;
+}
+.boxList {
+    border-radius: 0 0 0 4px;
+    position: fixed;
+    height:100vh;
+    width:20vw;
+    right:0;
+    display: none;
+    border-radius: 0.5em 0 0 0.5em;
+    box-sizing: border-box;
+   
+}
+
+@keyframes show {
+    from { 
+        right: -300px;
+        opacity: 0;
+    }
+    to{
+        right:0;
+        opacity:1;
+    }
+}
+
+
+@keyframes hide {
+    from { 
+        right:0;
+        opacity:1;
+    }
+    to{
+        right: -300px;
+        opacity: 0;
+    }
+}
+
+
+.showModal {
+    display:block;
+    animation: show 0.4s;
+}
+
+.hideModal {
+    animation:hide .4s;
+    display:block;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+}
