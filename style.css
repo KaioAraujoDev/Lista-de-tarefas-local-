@@ -120,8 +120,10 @@ body {
     top:0;
     border-radius: 0 0 1em 1em ;
     background: #6259D4;
-    width: 4.5em;
+    width: 5em;
     height: 4.5em;
+    color:white;
+
 }
 .buttonOpenTask:hover{
     cursor: pointer;
@@ -135,7 +137,7 @@ body {
 .buttonHideTask {
     background:none;
     position: absolute;
-    top:0.5em;
+    top:1.2em;
     right:1em;
     width: 3em;
     height: 3em;
@@ -157,7 +159,7 @@ body {
     display: none;
     border-radius: 0.5em 0 0 0.5em;
     box-sizing: border-box;
-   
+    overflow:auto;
 }
 
 @keyframes show {
@@ -194,4 +196,82 @@ body {
     display:block;
     animation-fill-mode: forwards;
     pointer-events: none;
+}
+
+/******************************** Conteúdo Lista de tarefas ****************************/
+.header{
+    display:flex;
+    justify-content: space-between;
+}
+.titleMainList{
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.item {
+    position: relative;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    display:none;
+}
+.buttonSettings{
+    background:none;
+    border:none;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+
+}
+.buttonSettings:hover{
+    cursor:pointer
+}
+.iconSettings{
+    width:2em;
+    margin-right:0.5em;
+}
+
+.editItem {
+    background:white;
+    border:1px solid black;
+    position:fixed;
+    z-index: 1;
+    display:none;
+    right: 2em;
+}
+.editItem ul li {
+    display:flex;
+    align-items:center;
+    padding:0.25em;
+}
+.editItem ul li:hover {
+    background: #ccc;
+}
+.boxItem {
+    background-color: #f3f4f6;
+    padding: 1em;
+    border-radius: 0.25em;
+    margin-bottom: 0.5em;
+}
+.stateList {
+    background: #ffff4d;
+    padding: 0.30em;
+    width: 50%;
+    text-align: center;
+    border-radius: 0.75em;
+    font-style: italic;
+    margin-bottom: .4em;
+}
+.contentItem{
+    font-size: 0.9em;
+}
+.dataList {
+    font-weight: bold;
+    padding: 0 1em;
+}
+.titleItemList{
+    font-size:1.2em;
+    font-weight: 400;
+    margin-bottom: 0.5em;
 }

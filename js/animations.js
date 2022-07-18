@@ -17,3 +17,15 @@ buttonHideTask.addEventListener('click',()=>{
     body.style.marginRight = "0";
 });
 
+//Controle de configurações tela de lista 
+
+const configItem =  document.querySelector('[data-buttonSettings]')
+const listEdit = document.querySelector('[data-editItem]')
+configItem.addEventListener('click',()=>{
+    if(listEdit.style.display == 'block'){
+        listEdit.style.display = 'none';
+    }else{
+        listEdit.style.display = 'block';
+    }
+    
+})
