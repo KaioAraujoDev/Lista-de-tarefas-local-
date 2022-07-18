@@ -6,12 +6,14 @@ const body = document.querySelector('.boxMain');
 
 
 buttonOpenTask.addEventListener('click',()=>{
-    body.style.marginRight = "30vw";
+    body.style.marginRight = "20vw";
+    modalList.classList.remove('hideModal');
     modalList.classList.add('showModal');
 });
 
 buttonHideTask.addEventListener('click',()=>{
     modalList.classList.remove('showModal');
+    modalList.classList.add('hideModal');
     body.style.marginRight = "0";
 });
 

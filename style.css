@@ -120,6 +120,8 @@ body {
     top:0;
     border-radius: 0 0 1em 1em ;
     background: #6259D4;
+    width: 4.5em;
+    height: 4.5em;
 }
 .buttonOpenTask:hover{
     cursor: pointer;
@@ -127,6 +129,7 @@ body {
 
 .buttonHideTask , .buttonOpenTask{
     border: none;
+    font-size: 1em;
 }
 
 .buttonHideTask {
@@ -136,7 +139,6 @@ body {
     right:1em;
     width: 3em;
     height: 3em;
-    font-size: 0.85em;
     border-radius: 1em 1em;
 
 }
@@ -148,14 +150,16 @@ body {
 }
 .boxList {
     border-radius: 0 0 0 4px;
-    position: relative;
+    position: fixed;
     height:100vh;
-    width:30vw;
+    width:20vw;
+    right:0;
     display: none;
     border-radius: 0.5em 0 0 0.5em;
     box-sizing: border-box;
-    animation: show 0.4s;
+   
 }
+
 @keyframes show {
     from { 
         right: -300px;
@@ -166,6 +170,28 @@ body {
         opacity:1;
     }
 }
+
+
+@keyframes hide {
+    from { 
+        right:0;
+        opacity:1;
+    }
+    to{
+        right: -300px;
+        opacity: 0;
+    }
+}
+
+
 .showModal {
     display:block;
+    animation: show 0.4s;
+}
+
+.hideModal {
+    animation:hide .4s;
+    display:block;
+    animation-fill-mode: forwards;
+    pointer-events: none;
 }
