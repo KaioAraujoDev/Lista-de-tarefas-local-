@@ -32,10 +32,11 @@ const listaButton = document.querySelectorAll('[data-buttonsettings]');
 
     function exibirNav(item){
         const nav = item.parentNode.children.item(1);
+
         
-        validarNav()
-        
+
         if(nav.classList.contains('hide')){
+            validarNav()
             nav.classList.remove('hide');
             nav.classList.add('show');
         }else{
