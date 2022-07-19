@@ -1,17 +1,29 @@
 const form = document.getElementById('form');
 const lista = document.getElementById('lista');
-
+const itens = [];
 
 form.addEventListener('submit', (evento) => {
     evento.preventDefault();//Impedir a propagação do evento
 
+    const tarefa = evento.target.elements['tarefa'];
+    const descricao = evento.target.elements['descricao'];
+    const data = evento.target.elements['data'];
 
-    createItem(evento.target.elements['tarefa'].value, evento.target.elements['descricao'].value, evento.target.elements['data'].value);
+    createItem(tarefa.value,descricao.value,data.value);
+
+    tarefa.value= "";
+    descricao.value = "";
+    data.value = "";
+
 })
 
 function createItem(tarefa, descricao, data) {
-    console.log(tarefa, descricao, data);
 
+    function formatarData(data){
+        return data.split('-').reverse().join('/');
+    }
+
+    const dataFormatada = formatarData(data);
     const novoItem = document.createElement('li');
     novoItem.classList.add('item');
 
@@ -21,7 +33,7 @@ function createItem(tarefa, descricao, data) {
         <div class="settings">
             <button class="buttonSettings" data-buttonSettings><i><img class="iconSettings"
             src="assets/three-dots.svg" alt=""></i></button>
-            <nav class="editItem" data-editItem>
+            <nav class="editItem hide" data-editItem>
                 <ul>
                     <li>
                         <button class="buttonSettings">
@@ -48,10 +60,17 @@ function createItem(tarefa, descricao, data) {
                 ${descricao}
             </p>
         </div>
-    <p class="dataList">Prazo: ${data}</p>
+    <p class="dataList">Prazo: ${dataFormatada}</p>
     `;
 
     lista.appendChild(novoItem);
 
-    console.log(lista)
+    const item = {
+        "tarefa" : tarefa,
+        "descricao": descricao,
+        "data" :dataFormatada,
+    }
+
+    itens.push(item)
+    localStorage.setItem('item',JSON.stringify(itens))
 }

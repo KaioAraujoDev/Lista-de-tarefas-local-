@@ -237,9 +237,17 @@ body {
     border:1px solid black;
     position:fixed;
     z-index: 1;
-    display:none;
     right: 2em;
 }
+.show {
+    display:block;
+}
+
+.hide {
+    display:none;
+}
+
+
 .editItem ul li {
     display:flex;
     align-items:center;

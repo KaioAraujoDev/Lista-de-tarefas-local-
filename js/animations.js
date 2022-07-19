@@ -17,19 +17,48 @@ buttonHideTask.addEventListener('click', () => {
     body.style.marginRight = "0";
 });
 
-//Controle de configurações tela de lista 
+//Controle de edição de cada item da lista 
 
-console.log(lista)
-if (lista.children.length >= 1) {
-    
-    const configItem = document.querySelector('[data-buttonSettings]')
-    const listEdit = document.querySelector('[data-editItem]')
-    configItem.addEventListener('click', () => {
-        if (listEdit.style.display == 'block') {
-            listEdit.style.display = 'none';
-        } else {
-            listEdit.style.display = 'block';
+
+
+
+form.addEventListener('submit', () => {
+const listaButton = document.querySelectorAll('[data-buttonsettings]');   
+
+
+    listaButton.forEach((element) => {
+        element.onclick = function(){exibirNav(element)};
+    })
+
+    function exibirNav(item){
+        const nav = item.parentNode.children.item(1);
+        
+        validarNav()
+        
+        if(nav.classList.contains('hide')){
+            nav.classList.remove('hide');
+            nav.classList.add('show');
+        }else{
+            nav.classList.remove('show');
+            nav.classList.add('hide');
         }
 
-    })
-}
+        
+    }
+    
+    //Função para remover os botões em que já foram clicados
+    //Deve ser chamada toda vez que um botão de navegação é mostrado
+    function validarNav(){
+        const navs = document.querySelectorAll('[data-editItem]');
+
+        navs.forEach((element)=>{
+            console.log(element.classList)
+            if(element.classList.contains('show')){
+                element.classList.remove('show');
+                element.classList.add('hide');
+            }
+        })
+    }
+})
+   
+
