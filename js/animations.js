@@ -19,9 +19,6 @@ buttonHideTask.addEventListener('click', () => {
 
 //Controle de edição de cada item da lista 
 
-
-
-
 form.addEventListener('submit', () => {
 const listaButton = document.querySelectorAll('[data-buttonsettings]');   
 
@@ -33,8 +30,6 @@ const listaButton = document.querySelectorAll('[data-buttonsettings]');
     function exibirNav(item){
         const nav = item.parentNode.children.item(1);
 
-        
-
         if(nav.classList.contains('hide')){
             validarNav()
             nav.classList.remove('hide');
@@ -44,7 +39,6 @@ const listaButton = document.querySelectorAll('[data-buttonsettings]');
             nav.classList.add('hide');
         }
 
-        
     }
     
     //Função para remover os botões em que já foram clicados
