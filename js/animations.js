@@ -22,66 +22,50 @@ buttonHideTask.addEventListener('click', () => {
 function exibirModalConcluido() {
     const modalConcluido = document.querySelector('[data-modalconcluido]');
 
-    if(modalConcluido.classList.contains('hideModalConcluido')){
+    if (modalConcluido.classList.contains('hideModalConcluido')) {
         modalConcluido.classList.remove('hideModalConcluido');
     }
     modalConcluido.classList.add('showModalConcluido');
 
-    setTimeout(()=>{
+    setInterval(() => {
         modalConcluido.classList.remove('showModalConcluido');
         modalConcluido.classList.add('hideModalConcluido');
-    },3000)
+    }, 3000)
 
-
-    // if(modalConcluido.classList.contains('hideModalConcluido')){
-    //     modalConcluido.classList.remove('hideModalConcluido');
-    //     modalConcluido.classList.add('showModalConcluido');
-    // }else if(modalConcluido.classList.contains('showModalConcluido')){
-    //     modalConcluido.classList.remove('showModalConcluido');
-    //     modalConcluido.classList.add('hideModalConcluido');
-    // }else{
-    //     modalConcluido.classList.add('showModalConcluido');
-    // }
 }
 
-form.addEventListener('submit', () => {
-
-exibirModalConcluido();
-
-const listaButton = document.querySelectorAll('[data-buttonsettings]');   
-
+function verificandoBotoes(){
+    const listaButton = document.querySelectorAll('[data-buttonsettings]');
 
     listaButton.forEach((element) => {
-        element.onclick = function(){exibirNav(element)};
+        element.onclick = function () { exibirNav(element) };
     })
 
-    function exibirNav(item){
-        const nav = item.parentNode.children.item(1);
+}
 
-        if(nav.classList.contains('hide')){
-            validarNav()
-            nav.classList.remove('hide');
-            nav.classList.add('show');
-        }else{
-            nav.classList.remove('show');
-            nav.classList.add('hide');
+function exibirNav(item) {
+    const nav = item.parentNode.children.item(1);
+
+    if (nav.classList.contains('hide')) {
+        validarNav()
+        nav.classList.remove('hide');
+        nav.classList.add('show');
+    } else {
+        nav.classList.remove('show');
+        nav.classList.add('hide');
+    }
+
+}
+
+//Função para remover os botões em que já foram clicados
+//Deve ser chamada toda vez que um botão de navegação é mostrado
+function validarNav() {
+    const navs = document.querySelectorAll('[data-editItem]');
+
+    navs.forEach((element) => {
+        if (element.classList.contains('show')) {
+            element.classList.remove('show');
+            element.classList.add('hide');
         }
-
-    }
-    
-    //Função para remover os botões em que já foram clicados
-    //Deve ser chamada toda vez que um botão de navegação é mostrado
-    function validarNav(){
-        const navs = document.querySelectorAll('[data-editItem]');
-
-        navs.forEach((element)=>{
-            console.log(element.classList)
-            if(element.classList.contains('show')){
-                element.classList.remove('show');
-                element.classList.add('hide');
-            }
-        })
-    }
-})
-   
-
+    })
+}

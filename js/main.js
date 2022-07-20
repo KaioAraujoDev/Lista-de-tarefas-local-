@@ -29,14 +29,14 @@ function listar(){
                 <nav class="editItem hide" data-editItem>
                     <ul>
                         <li>
-                            <button class="buttonSettings">
+                            <button class="buttonSettings" data-editButton>
                                 <i><img class="iconSettings" src="assets/pencil-square.svg" alt="Editar"></i>
                                 Editar tarefa
                             </button>
     
                         </li>
                         <li>
-                            <button class="buttonSettings">
+                            <button class="buttonSettings" data-removeButton>
                                 <i><img class="iconSettings" src="assets/trash-fill.svg" alt="Remover"></i>
                                 Remover tarefa
                             </button>
@@ -64,7 +64,9 @@ function listar(){
 //verificando se existe algum item da lista 
 
 if(itens.length !== 0){
-    listar();
+    listar()
+    verificandoBotoes()
+    
 }else{
     lista.innerHTML = `
     <section class="semItem">
@@ -78,7 +80,13 @@ if(itens.length !== 0){
 //Evento submit , buscando dados do formulário para criação do elemento
 
 form.addEventListener('submit', (evento) => {
+ 
     evento.preventDefault();//Impedir a propagação do evento
+    
+    verificandoBotoes();
+    exibirModalConcluido();
+    
+
 
     const tarefa = evento.target.elements['tarefa'];
     const descricao = evento.target.elements['descricao'];
