@@ -19,7 +19,35 @@ buttonHideTask.addEventListener('click', () => {
 
 //Controle de edição de cada item da lista 
 
+function exibirModalConcluido() {
+    const modalConcluido = document.querySelector('[data-modalconcluido]');
+
+    if(modalConcluido.classList.contains('hideModalConcluido')){
+        modalConcluido.classList.remove('hideModalConcluido');
+    }
+    modalConcluido.classList.add('showModalConcluido');
+
+    setTimeout(()=>{
+        modalConcluido.classList.remove('showModalConcluido');
+        modalConcluido.classList.add('hideModalConcluido');
+    },3000)
+
+
+    // if(modalConcluido.classList.contains('hideModalConcluido')){
+    //     modalConcluido.classList.remove('hideModalConcluido');
+    //     modalConcluido.classList.add('showModalConcluido');
+    // }else if(modalConcluido.classList.contains('showModalConcluido')){
+    //     modalConcluido.classList.remove('showModalConcluido');
+    //     modalConcluido.classList.add('hideModalConcluido');
+    // }else{
+    //     modalConcluido.classList.add('showModalConcluido');
+    // }
+}
+
 form.addEventListener('submit', () => {
+
+exibirModalConcluido();
+
 const listaButton = document.querySelectorAll('[data-buttonsettings]');   
 
 

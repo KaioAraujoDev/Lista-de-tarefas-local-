@@ -2,15 +2,20 @@ const form = document.getElementById('form');
 const lista = document.getElementById('lista');
 const itens = JSON.parse(localStorage.getItem('item')) || [];
 
-console.log(lista.length);
+//Convertendo para data no modelo brasileiro
+
+function formatarData(data){
+    return data.split('-').reverse().join('/');
+}
+
+//Adicionando itens na lista da página 
 
 function listar(){
 
+    lista.innerHTML = '';
+
     for(let count = lista.childElementCount; count < itens.length;count++){
-        function formatarData(data){
-            return data.split('-').reverse().join('/');
-        }
-    
+        
         const dataFormatada = formatarData(itens[count].data);
         const novoItem = document.createElement('li');
         novoItem.classList.add('item');
@@ -56,7 +61,21 @@ function listar(){
 
 }
 
-listar();
+//verificando se existe algum item da lista 
+
+if(itens.length !== 0){
+    listar();
+}else{
+    lista.innerHTML = `
+    <section class="semItem">
+        <p>
+            Nenhum valor encontrado
+        </p>
+    </section>
+    `;
+}
+
+//Evento submit , buscando dados do formulário para criação do elemento
 
 form.addEventListener('submit', (evento) => {
     evento.preventDefault();//Impedir a propagação do evento
@@ -73,6 +92,8 @@ form.addEventListener('submit', (evento) => {
 
     listar();
 })
+
+//Adicionando item no localStorage
 
 function createItem(tarefa, descricao, data) {
 
