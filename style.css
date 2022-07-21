@@ -38,7 +38,37 @@ body {
     font-weight: 300;
     width: 60%;
 }
+.showModalConcluido{
+    visibility: visible;
+    animation: animationModalConcluido 1s;
+}
+.hideModalConcluido {
+    visibility: visible;
+    animation: animationHideModalConcluido 1s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+}
+@keyframes animationModalConcluido {
+    from{
+        left:-250px;
+        opacity: 0;
+    }
+    to{
+        left:0px;
+        opacity: 1;
+    }
+}
 
+@keyframes animationHideModalConcluido {
+    from {
+        left:0;
+        opacity: 1;
+    }
+    to{
+        left:-250px;
+        opacity: 0;
+    }
+}
 /******************************** Estilo Formulário ****************************/
 
 .boxMain {
@@ -235,7 +265,7 @@ body {
 .editItem {
     background:white;
     border:1px solid black;
-    position:fixed;
+    position:absolute;
     z-index: 1;
     right: 2em;
 }
