@@ -27,10 +27,10 @@ function exibirModalConcluido() {
     }
     modalConcluido.classList.add('showModalConcluido');
 
-    setInterval(() => {
+    setTimeout(() => {
         modalConcluido.classList.remove('showModalConcluido');
         modalConcluido.classList.add('hideModalConcluido');
-    }, 3000)
+    }, 2000)
 
 }
 
@@ -57,7 +57,7 @@ function exibirNav(item) {
 
 }
 
-//Função para remover os botões em que já foram clicados
+//Função para remover os botões que já foram clicados
 //Deve ser chamada toda vez que um botão de navegação é mostrado
 function validarNav() {
     const navs = document.querySelectorAll('[data-editItem]');
