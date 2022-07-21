@@ -335,6 +335,7 @@ body {
 }
 .contentItem{
     font-size: 0.9em;
+    word-wrap: break-word;
 }
 .dataList {
     font-weight: bold;

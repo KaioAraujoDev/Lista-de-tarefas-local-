@@ -2,6 +2,17 @@ const form = document.getElementById('form');
 const lista = document.getElementById('lista');
 const itens = JSON.parse(localStorage.getItem('item')) || [];
 
+
+//Impedindo que o usuário coloque uma data anterior a data atual
+function validandoData(){
+    const time = Date.now()//Pegando a quantidade de milisegundos da data atual
+    const date = new Date(time);//Instanciando uma nova data passando os milisegundos da data atual 
+    const dataAtual = date.toISOString().slice(0,10);
+    const campoData = document.querySelector('#data');
+    campoData.min = dataAtual;
+}
+validandoData();
+
 //Convertendo para data no modelo brasileiro
 
 function formatarData(data){
@@ -64,38 +75,28 @@ function listar(){
 
 }
 
-var time = Date.now()
-var dataNew = new Date(time);
-console.log(dataNew.toISOString().slice(0,10));
-//Verificando se a data é menor que a atual
-function validandoData(data){
-    
-    console.log(data.value)
-
-}
 
 //Evento submit , buscando dados do formulário para criação do elemento
 form.addEventListener('submit', (evento) => {
+    
     evento.preventDefault();//Impedir a propagação do evento
 
     const tarefa = evento.target.elements['tarefa'];
     const descricao = evento.target.elements['descricao'];
     const data = evento.target.elements['data'];
 
-    validandoData(data);
-
-    exibirModalConcluido();
-    
     createItem(tarefa.value,descricao.value,data.value);
 
     tarefa.value= "";
     descricao.value = "";
     data.value = "";
+    
+    exibirModalConcluido();
 
     listar();
     verificandoBotoes();
-
     
+
 })
 
 //Adicionando item no localStorage
