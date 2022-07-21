@@ -233,6 +233,32 @@ body {
     display:flex;
     justify-content: space-between;
 }
+.divTitle input{
+   display:none;
+}
+.divTitle label{
+    display:flex;
+
+}
+.divTitle input + label::before {
+    content:'';
+    width:18px;
+    height:18px;
+    border-radius: 4px;
+    border:1px solid gray;
+    background-color:white;
+    display:inline-block;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    
+}
+.divTitle input:checked + label::before {
+    background-image: url(assets/check.svg);
+    background-position: center;
+}
+.divTitle label:hover{
+    cursor: pointer;
+}
 .titleMainList{
     font-size: 1.5em;
     font-weight: 600;
@@ -242,7 +268,6 @@ body {
 .item {
     position: relative;
     border-bottom: 1px solid #CCC;
-    padding-bottom: 0.5em;
     margin-bottom: 1em;
 
 }
@@ -290,10 +315,11 @@ body {
     background-color: #f3f4f6;
     padding: 1em;
     border-radius: 0.25em;
-    margin-bottom: 0.5em;
+    margin-top: 1em;
+    box-shadow: 0 0 5px 0 #ccc ;
 }
 .stateList {
-    background: #ffff4d;
+    
     padding: 0.30em;
     width: 50%;
     text-align: center;
@@ -301,12 +327,18 @@ body {
     font-style: italic;
     margin-bottom: .4em;
 }
+.stateInProgress {
+    background: #ffff4d;
+}
+.stateConcluded {
+    background : #7FFF00;
+}
 .contentItem{
     font-size: 0.9em;
 }
 .dataList {
     font-weight: bold;
-    padding: 0 1em;
+    margin: 0.5em 0;
 }
 .titleItemList{
     font-size:1.2em;

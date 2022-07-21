@@ -22,7 +22,10 @@ function listar(){
     
         novoItem.innerHTML = `
         <div class='header'>
-            <h2 class='titleItemList'>${itens[count].tarefa}</h2>
+            <div class="divTitle">
+                <input type='checkbox' class="checkbox" id="checkTask${count}"/>
+                <label for="checkTask${count}"><h2 class='titleItemList'>${itens[count].tarefa}</h2></label>
+            </div>
             <div class="settings">
                 <button class="buttonSettings" data-buttonSettings><i><img class="iconSettings"
                 src="assets/three-dots.svg" alt=""></i></button>
@@ -45,8 +48,8 @@ function listar(){
                 </nav>
             </div>
         </div>
-            <div class="stateList">
-                <p>Em progresso</p>
+            <div class="stateList ${itens[count].concluido === false ? 'stateInProgress' : 'stateConcluded'}">
+                <p>${itens[count].concluido === false ? 'Em progresso': 'Concluído'}</p>
             </div>
             <div class="boxItem">
                 <p class="contentItem">
@@ -61,19 +64,28 @@ function listar(){
 
 }
 
+var time = Date.now()
+var dataNew = new Date(time);
+console.log(dataNew.toISOString().slice(0,10));
+//Verificando se a data é menor que a atual
+function validandoData(data){
+    
+    console.log(data.value)
+
+}
 
 //Evento submit , buscando dados do formulário para criação do elemento
-
 form.addEventListener('submit', (evento) => {
- 
     evento.preventDefault();//Impedir a propagação do evento
-    
-    exibirModalConcluido();
-    
+
     const tarefa = evento.target.elements['tarefa'];
     const descricao = evento.target.elements['descricao'];
     const data = evento.target.elements['data'];
 
+    validandoData(data);
+
+    exibirModalConcluido();
+    
     createItem(tarefa.value,descricao.value,data.value);
 
     tarefa.value= "";
@@ -94,6 +106,7 @@ function createItem(tarefa, descricao, data) {
         "tarefa" : tarefa,
         "descricao": descricao,
         "data" : data,
+        "concluido": false,
     }
 
     itens.push(item)
