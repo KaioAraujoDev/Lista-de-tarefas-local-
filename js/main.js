@@ -2,6 +2,17 @@ const form = document.getElementById('form');
 const lista = document.getElementById('lista');
 const itens = JSON.parse(localStorage.getItem('item')) || [];
 
+
+//Impedindo que o usuário coloque uma data anterior a data atual
+function validandoData(){
+    const time = Date.now()//Pegando a quantidade de milisegundos da data atual
+    const date = new Date(time);//Instanciando uma nova data passando os milisegundos da data atual 
+    const dataAtual = date.toISOString().slice(0,10);
+    const campoData = document.querySelector('#data');
+    campoData.min = dataAtual;
+}
+validandoData();
+
 //Convertendo para data no modelo brasileiro
 
 function formatarData(data){
@@ -22,7 +33,10 @@ function listar(){
     
         novoItem.innerHTML = `
         <div class='header'>
-            <h2 class='titleItemList'>${itens[count].tarefa}</h2>
+            <div class="divTitle">
+                <input type='checkbox' class="checkbox" id="checkTask${count}"/>
+                <label for="checkTask${count}"><h2 class='titleItemList'>${itens[count].tarefa}</h2></label>
+            </div>
             <div class="settings">
                 <button class="buttonSettings" data-buttonSettings><i><img class="iconSettings"
                 src="assets/three-dots.svg" alt=""></i></button>
@@ -45,8 +59,8 @@ function listar(){
                 </nav>
             </div>
         </div>
-            <div class="stateList">
-                <p>Em progresso</p>
+            <div class="stateList ${itens[count].concluido === false ? 'stateInProgress' : 'stateConcluded'}">
+                <p>${itens[count].concluido === false ? 'Em progresso': 'Concluído'}</p>
             </div>
             <div class="boxItem">
                 <p class="contentItem">
@@ -63,13 +77,10 @@ function listar(){
 
 
 //Evento submit , buscando dados do formulário para criação do elemento
-
 form.addEventListener('submit', (evento) => {
- 
+    
     evento.preventDefault();//Impedir a propagação do evento
-    
-    exibirModalConcluido();
-    
+
     const tarefa = evento.target.elements['tarefa'];
     const descricao = evento.target.elements['descricao'];
     const data = evento.target.elements['data'];
@@ -79,11 +90,13 @@ form.addEventListener('submit', (evento) => {
     tarefa.value= "";
     descricao.value = "";
     data.value = "";
+    
+    exibirModalConcluido();
 
     listar();
     verificandoBotoes();
-
     
+
 })
 
 //Adicionando item no localStorage
@@ -94,6 +107,7 @@ function createItem(tarefa, descricao, data) {
         "tarefa" : tarefa,
         "descricao": descricao,
         "data" : data,
+        "concluido": false,
     }
 
     itens.push(item)
