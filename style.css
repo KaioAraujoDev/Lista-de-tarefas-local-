@@ -229,20 +229,16 @@ body {
 }
 
 /******************************** Conteúdo Lista de tarefas ****************************/
-.header{
-    display:flex;
-    justify-content: space-between;
-}
-.divTitle input{
+.header input{
    display:none;
 }
-.divTitle label{
+.header label{
     display:flex;
-
+    width: 100%;
 }
-.divTitle input + label::before {
+.header input + label::before {
     content:'';
-    width:18px;
+    width:8%;
     height:18px;
     border-radius: 4px;
     border:1px solid gray;
@@ -252,11 +248,11 @@ body {
     margin-right: 0.5em;
     
 }
-.divTitle input:checked + label::before {
+.header input:checked + label::before {
     background-image: url(assets/check.svg);
     background-position: center;
 }
-.divTitle label:hover{
+.header label:hover{
     cursor: pointer;
 }
 .titleMainList{
@@ -270,6 +266,10 @@ body {
     border-bottom: 1px solid #CCC;
     margin-bottom: 1em;
 
+}
+.settings {
+    position: absolute;
+    right:0;
 }
 .buttonSettings{
     background:none;
@@ -345,4 +345,6 @@ body {
     font-size:1.2em;
     font-weight: 400;
     margin-bottom: 0.5em;
+    width: 70%;
+    word-break: break-word;
 }
